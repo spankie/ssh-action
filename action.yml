@@ -1,0 +1,16 @@
+# action.yml
+name: 'SSH Action'
+description: 'Run command remotely using ssh'
+inputs:
+  script:  # id of input
+    description: 'Specifies if a script is to be run'
+    required: true
+    default: true
+# outputs:
+#   time: # id of output
+#     description: 'The time we command was run'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.script }}
